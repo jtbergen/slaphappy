@@ -9,7 +9,7 @@
     storageBucket: "breakstuff-1521215484628.appspot.com",
     messagingSenderId: "991926716042"
   };
-  firebase.initializeApp(config);
+  firebase.initializeApp(config);//TODO Change authorization 
 
   //Get the elements into the DOM
   const $txtEmail =$("#txtEmail");
@@ -39,13 +39,13 @@ $(document).ready(function()
 
   //Add Signup Event
     $btnSignUp.on("click",e=>{
-        console.log("I am signing out!")
+        console.log("I am signing in")
 
         firebase.auth().signOut();
     });
 
     $btnLogOut.on("click",e=>{
-      console.log("I am logginh up")
+      console.log("I am logging out")
 
       //get email and passoword from user
       const email = $txtEmail.val().trim();
