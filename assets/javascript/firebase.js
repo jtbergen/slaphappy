@@ -21,22 +21,61 @@
 //When the dom is ready fire off these events
 $(document).ready(function()
 {
+
     //Add Login Event
     $btnLogin.on("click",e=>{
-    console.log("i am logging in")
-    //get email and passoword
-    const email = $txtEmail.val().trim();
-    const pass = $txtPassword.val().trim();
-    //This returns everything we need for authentication
-    const auth = firebase.auth();
-   
-    //SignIn email and password will return a promise
-    const promise= auth.signInWithEmailAndPassword(email,pass);
-    //Instead of resolving the user, I am going to catch errors that might occcur
-    promise.catch(e=>console.log(e.message));
+        console.log("i am logging in")
+        //get email and passoword
+        const email = $txtEmail.val().trim();
+        const pass = $txtPassword.val().trim();
+        //This returns everything we need for authentication
+        const auth = firebase.auth();
+    
+        //SignIn email and password will return a promise
+        const promise= auth.signInWithEmailAndPassword(email,pass);
+        //Instead of resolving the user, I am going to catch errors that might occcur
+        promise.catch(e=>console.log(e.message));
+  });
 
+  //Add Signup Event
+    $btnSignUp.on("click",e=>{
+        console.log("I am signing out!")
+
+        firebase.auth().signOut();
+    });
+
+    $btnLogOut.on("click",e=>{
+      console.log("I am logginh up")
+
+      //get email and passoword from user
+      const email = $txtEmail.val().trim();
+      const pass = $txtPassword.val().trim();
+      //This returns everything we need for authentication
+      const auth = firebase.auth();
+  
+      //Create User with email and password will return a promise
+      //TODO check for real email
+      const promise= auth.createUserWithEmailAndPassword(email,pass);
+      //Instead of resolving the user, I am going to catch errors that might occcur
+      promise.catch(e=>console.log(e.message));
 
   });
+    // Add a realtime event listener to check to see if the user is present
+    //Attach an object observer to the global authentication object"firebase.auth()" and then
+    //use the onAuthStateChanged method to see if the state change meaning a user is present
+    //if not then log a message to the console.
+    firebase.auth().onAuthStateChanged(firebaseUser =>{
+      if(firebaseUser){
+        console.log(firebaseUser);
+        $btnLogOut.removeClass("invisible");//If the use is logged in, remove the invisibility
+      }else{
+        console.log("not logged in");
+        $btnLogOut.addClass("invisible");//Otherwise keep logout invisible
+      }
+    });//Works use is logging to console with same name and email that I entered
+
+
+
 });
 
 //   //Create and instance of the google provider
