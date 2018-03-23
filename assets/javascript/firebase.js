@@ -1,15 +1,16 @@
 
 
+ 
   // Initialize Firebase
   var config = {
-    apiKey: "AIzaSyD1Q-lpxtJSo3RyjyN8E3X7OTUURbQP12c",
-    authDomain: "breakstuff-1521215484628.firebaseapp.com",
-    databaseURL: "https://breakstuff-1521215484628.firebaseio.com",
-    projectId: "breakstuff-1521215484628",
-    storageBucket: "breakstuff-1521215484628.appspot.com",
-    messagingSenderId: "991926716042"
+    apiKey: "AIzaSyDF7PZf6cLD3-fopJc-9FLNlUfNZR0m_gA",
+    authDomain: "slap-happy-114d7.firebaseapp.com",
+    databaseURL: "https://slap-happy-114d7.firebaseio.com",
+    projectId: "slap-happy-114d7",
+    storageBucket: "slap-happy-114d7.appspot.com",
+    messagingSenderId: "385144633022"
   };
-  firebase.initializeApp(config);//TODO Change authorization 
+  firebase.initializeApp(config);
 
   //Get the elements into the DOM
   const $txtEmail =$("#txtEmail");
@@ -38,14 +39,14 @@ $(document).ready(function()
   });
 
   //Add Signup Event
-    $btnSignUp.on("click",e=>{
-        console.log("I am signing in")
+    $btnLogOut.on("click",e=>{
+        console.log("I am logging out")
 
         firebase.auth().signOut();
     });
 
-    $btnLogOut.on("click",e=>{
-      console.log("I am logging out")
+    $btnSignUp.on("click",e=>{
+      console.log("I am signing up")
 
       //get email and passoword from user
       const email = $txtEmail.val().trim();
@@ -74,6 +75,24 @@ $(document).ready(function()
       }
     });//Works use is logging to console with same name and email that I entered
 
+      /////////////GOOGLE AUTHTICATION/////////////
+    var provider = new firebase.auth.GoogleAuthProvider();
+    firebase.auth().signInWithPopup(provider).then(function(result) {
+      // This gives you a Google Access Token. You can use it to access the Google API.
+      var token = result.credential.accessToken;
+      // The signed-in user info.
+      var user = result.user;
+      // ...
+    }).catch(function(error) {
+      // Handle Errors here.
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      // The email of the user's account used.
+      var email = error.email;
+      // The firebase.auth.AuthCredential type that was used.
+      var credential = error.credential;
+      // ...
+    });
 
 
 });
