@@ -1,42 +1,85 @@
-
-
+/*
+ _____   _           ___   _____   _   _       ___   _____   _____  __    __ 
+/  ___/ | |         /   | |  _  \ | | | |     /   | |  _  \ |  _  \ \ \  / / 
+| |___  | |        / /| | | |_| | | |_| |    / /| | | |_| | | |_| |  \ \/ /  
+\___  \ | |       / / | | |  ___/ |  _  |   / / | | |  ___/ |  ___/   \  /   
+ ___| | | |___   / /  | | | |     | | | |  / /  | | | |     | |       / /    
+/_____/ |_____| /_/   |_| |_|     |_| |_| /_/   |_| |_|     |_|      /_/   
+*/
 
 $(document).ready(function(){ 
 
     $(".mainImage").click(function() {
         showMe();
-        console.log("show it");
     });
-   
+  
     function showMe() {
         $(".choose").text("What's Pissing You Off Today?"); 
         $(".mainImage").remove(); 
-
-        $(".whatItIs").append("<img class='pic pic1' src='../images/boss.jpg'>");
-        $(".whatItIs").append("<img class='pic pic2' src='../images/family.png'>");
-        $(".whatItIs").append("<img class='pic pic3' src='../images/traffic.jpg'>");
-        $(".whatItIs").append("<img class='pic pic4' src='../images/mamaFratelli.jpg'>");
-
+        $(".whatItIs").append("<a href='./main.html'><img src='./assets/images/boss.jpg' class='pic pic1' alt='Link to Main Page'></a>");
+        $(".whatItIs").append("<a href='./main.html'><img src='./assets/images/family.png' class='pic pic2' alt='Link to Main Page'></a>");
+        $(".whatItIs").append("<a href='./main.html'><img src='./assets/images/traffic.jpg' class='pic pic3' alt='Link to Main Page'></a>");
+        $(".whatItIs").append("<a href='./main.html'><img src='./assets/images/mamaFratelli.jpg' class='pic pic4' alt='Link to Main Page'></a>");
     };
+  
+    $("pic").on("click", function() {
+        $("pic").hide();
+    });
+  
+    $(".gym").hide();
+    $(".arcades").hide();
+    $(".bars").hide();
 
 
-   $(".pic").on("click", function() {
-         $(".pic").hide();
-         console.log("i am hidden")
+    $(".holdMe1").on("click", function() {
+        $(".gym").show();
+        $(".holdMe1").hide();
     });
 
+    $(".holdMe2").on("click", function() {
+        $(".arcades").show();
+        $(".holdMe2").hide();
+    });
 
+    $(".holdMe3").on("click", function() {
+        $(".bars").show();
+        $(".holdMe3").hide();
+    });
+    
+
+  
+  
+  });
+  
+  //////////////////////////////////////////////////////// The Drop  ////////////////////////////////////////////////////////
+  /*
+
+    NODE JS FOR FOURSQUARE
+
+
+    const request = require('request');
+
+request({
+  url: 'https://api.foursquare.com/v2/venues/explore',
+  method: 'GET',
+  qs: {
+    client_id: 'CLIENT_ID',
+    client_secret: 'CLIENT_SECRET',
+    ll: '40.7243,-74.0018',
+    query: 'coffee',
+    v: '20170801',
+    limit: 1
+  }
+}, function(err, res, body) {
+  if (err) {
+    console.error(err);
+  } else {
+    console.log(body);
+  }
 });
 
-//Site premise is to find places that will make a user less stressed
-//use click on a image to enter site
-//user selects from a list of pics to open the map
-//Map centers on the location of the person once it authorizes
-    //Map centers on user location
-    //Map will consume the location
-    //Send the location to firebase so it can be pass the location
-//Use firebase to add user identification with a timestamp from the time
-    //they click to enter the site
-//The chat box will take user input that is visible to others live
 
-
+  */
+  
+  
+  
