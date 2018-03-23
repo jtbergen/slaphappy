@@ -1,0 +1,96 @@
+<!--
+ _____   _           ___   _____   _   _       ___   _____   _____  __    __ 
+/  ___/ | |         /   | |  _  \ | | | |     /   | |  _  \ |  _  \ \ \  / / 
+| |___  | |        / /| | | |_| | | |_| |    / /| | | |_| | | |_| |  \ \/ /  
+\___  \ | |       / / | | |  ___/ |  _  |   / / | | |  ___/ |  ___/   \  /   
+ ___| | | |___   / /  | | | |     | | | |  / /  | | | |     | |       / /    
+/_____/ |_____| /_/   |_| |_|     |_| |_| /_/   |_| |_|     |_|      /_/   
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Slap Happy!</title>
+    <link rel="stylesheet" href="./assets/css/reset.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Berkshire+Swash|Rammetto+One" rel="stylesheet">
+           
+</head> 
+<body>
+    
+
+
+    <!-- MUST BE RESPONSIVE                                     -->
+    <!-- MUST BE RESPONSIVE                                     -->
+
+
+
+
+    <div class="container-flex">  <!-- look at flex box containers - can change child elements without adding responsiveness to columns -->
+        <div class="row row1col1">
+            <div class="col-s-12 col-m-8 col-l-5 projectName">
+                <h1 class="slapMeHappy">SLAP HAPPY</h1>
+                <h3>The Cure For Your Stressful Day</h3>
+            </div>
+        </div>
+        <div class="row">
+           <div class="col-7 mapMe">  
+               <h2 class="choose h2Me">Choose Your Stress Relief: </h2>
+                <div id="mapholder">
+                        <img class="holdMe holdMe1" src="./assets/images/map1.jpg">  
+                        <iframe 
+                            class="gym maps"
+                            width="500"
+                            height="300"
+                            frameborder="0" style="border:0"
+                            src="https://www.google.com/maps/embed/v1/search?key=AIzaSyAtVxpLvyMxx3H7K1TiqE0qA5AVVLQesRw&q=gyms+within125+miles&zoom=11" allowfullscreen>
+                        </iframe>
+                        <br><br>
+                        <img class="holdMe holdMe2" src="./assets/images/map2.png">
+                        <iframe
+                            class="arcades maps"
+                            width="500"
+                            height="300"
+                            frameborder="0" style="border:0"
+                            src="https://www.google.com/maps/embed/v1/search?key=AIzaSyAtVxpLvyMxx3H7K1TiqE0qA5AVVLQesRw&q=arcades+within125+miles&zoom=11" allowfullscreen>
+                        </iframe>
+                        <br><br>
+                        <img class="holdMe holdMe3" src="./assets/images/map3.jpg">
+                        <iframe
+                            class="bars maps"
+                            width="500"
+                            height="300"
+                            frameborder="0" style="border:0"
+                            src="https://www.google.com/maps/embed/v1/search?key=AIzaSyAtVxpLvyMxx3H7K1TiqE0qA5AVVLQesRw&q=bars+within+12+miles&zoom=11" allowfullscreen>
+                        </iframe>
+                </div>
+            </div>  
+            <div class="col-4 chatMe">
+                <h2 class="choose h2Me2">Worst Day Chat</h2>
+              <!--      <div class="chat">
+                        <p>Chat Placeholder</p>
+                    </div>  -->
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div id="postMe">
+                </div>
+            </div>
+        </div>
+
+<!-- MUST BE RESPONSIVE                                     -->
+<!-- MUST BE RESPONSIVE                                     -->
+
+
+
+    <script src="./assets/javascript/logic.js"></script>
+</body>
+</html> 
+
